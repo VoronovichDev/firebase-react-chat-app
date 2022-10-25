@@ -4,7 +4,7 @@ import GoogleButton from 'react-google-button';
 import { auth } from '../firebase';
 
 const style = {
-  wrapper: `flex justify-center w-32 sm:w-[240px]`,
+  wrapper: `flex justify-center w-28 sm:w-[240px] `,
 };
 
 const googleSignIn = () => {
@@ -15,7 +15,7 @@ const googleSignIn = () => {
 const Signin = () => {
   return (
     <div className={style.wrapper}>
-      <GoogleButton className={style.button} />
+      <GoogleButton onClick={googleSignIn} />
     </div>
   );
 };
