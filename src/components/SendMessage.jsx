@@ -4,13 +4,13 @@ import { useRef } from 'react';
 import { auth, db } from '../firebase';
 
 const style = {
-  form: `h-14 w-full max-w-[728px] flex text-xl absolute bottom-0`,
+  form: `h-14 w-full max-w-[728px] flex text-xl bottom-0 `,
   input: `w-full text-xl p-3 bg-black text-white outline-none border-none`,
   button: `w-[20%] bg-sky-300`,
   emptyMessage: ` bg-red-300 placeholder:text-slate-600`,
 };
 
-const SendMessage = ({ scroll }) => {
+const SendMessage = () => {
   const [input, setInput] = useState('');
   const inputRef = useRef(null);
 
@@ -19,7 +19,6 @@ const SendMessage = ({ scroll }) => {
     if (input === '') {
       inputRef.current.placeholder = 'please, write something';
       inputRef.current.className += style.emptyMessage;
-      console.log(inputRef.current);
       return;
     }
     inputRef.current.placeholder = 'type a message...';
@@ -32,7 +31,6 @@ const SendMessage = ({ scroll }) => {
       timestamp: serverTimestamp(),
     });
     setInput('');
-    scroll.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   const onInputChange = (e) => {

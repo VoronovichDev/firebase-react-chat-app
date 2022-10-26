@@ -6,12 +6,11 @@ import { db } from '../firebase';
 import SendMessage from './SendMessage';
 
 const style = {
-  main: `flex flex-col p-[10px]`,
+  main: `flex flex-col p-[10px] h-[80vh] gap-4 overflow-y-auto`,
 };
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
-  const scroll = useRef();
 
   useEffect(() => {
     const q = query(collection(db, 'messages'), orderBy('timestamp'));
@@ -29,8 +28,7 @@ const Chat = () => {
       <main className={style.main}>
         {messages && messages.map((message) => <Message key={message.id} message={message} />)}
       </main>
-      <SendMessage scroll={scroll} />
-      <span ref={scroll}></span>
+      <SendMessage />
     </>
   );
 };

@@ -2,21 +2,29 @@ import React from 'react';
 import { auth } from '../firebase';
 
 const style = {
-  message: `flex items-center shadow-xl m-4 py-2 px-3 rounded-tl-full rounded-tr-full`,
-  name: `absolute mt-[-4rem] text-gray-600 text-xs`,
-  sent: `bg-[#c8f246] text-black flex-row-reverse text-end float-right rounded-bl-full`,
-  received: `bg-[#e5e5ea] text-black float-left rounded-br-full`,
+  message: `flex flex-col items-center`,
+  name: `text-gray-600 text-xs w-full`,
+  sent: `text-black self-end text-end float-right `,
+  received: `bg-[#e5e5ea] text-black rounded-br-full`, //todo
+  text: `bg-[#c8f246] max-w-[280px] whitespace-normal break-words self-end text-left shadow-xl m-2 py-4 px-3 rounded-bl-2xl rounded-tl-2xl rounded-tr-2xl`,
+  soloMessage: `flex flex-col`,
 };
 
 const Message = ({ message }) => {
   const messageClass = message.uid === auth.currentUser.uid ? `${style.sent}` : `${style.received}`;
   return (
-    <div>
+    <div className={style.soloMessage}>
       <div className={`${style.message} ${messageClass}`}>
         <p className={style.name}>{message.name}</p>
-        <p>{message.text}</p>
+        <span className={style.text}>{message.text}</span>
       </div>
     </div>
+    //  <div>
+    //    <div className={`${style.message} ${messageClass}`}>
+    //      <p className={style.name}>{message.name}</p>
+    //      <span className={style.text}>{message.text}</span>
+    //    </div>
+    //  </div>
   );
 };
 
