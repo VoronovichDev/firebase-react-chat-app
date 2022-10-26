@@ -3,9 +3,10 @@ import { useEffect } from 'react';
 import Message from './Message';
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { db } from '../firebase';
+import SendMessage from './SendMessage';
 
 const style = {
-  main: `flex flex-col p-[10px] relative`,
+  main: `flex flex-col p-[10px]`,
 };
 
 const Chat = () => {
@@ -28,6 +29,7 @@ const Chat = () => {
       <main className={style.main}>
         {messages && messages.map((message) => <Message key={message.id} message={message} />)}
       </main>
+      <SendMessage scroll={scroll} />
       <span ref={scroll}></span>
     </>
   );
