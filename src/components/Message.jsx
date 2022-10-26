@@ -5,20 +5,12 @@ const style = {
   name: `absolute mt-[-4rem] text-gray-600 text-xs`,
 };
 
-const Message = () => {
+const Message = ({ message }) => {
   return (
     <div>
       <div className={style.message}>
         <p className={style.name}>Alexander</p>
-        <p>Chek out this firebase chat!</p>
-      </div>
-      <div className={style.message}>
-        <p className={style.name}>Alexander</p>
-        <p>Chek out this firebase chat!</p>
-      </div>
-      <div className={style.message}>
-        <p className={style.name}>Alexander</p>
-        <p>Chek out this firebase chat!</p>
+        <p>{message.text}</p>
       </div>
     </div>
   );
