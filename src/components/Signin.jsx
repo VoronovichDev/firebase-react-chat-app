@@ -1,10 +1,12 @@
 import { GoogleAuthProvider, signInWithRedirect } from 'firebase/auth';
 import React from 'react';
-import GoogleButton from 'react-google-button';
 import { auth } from '../firebase';
+import { FcGoogle } from 'react-icons/fc';
 
 const style = {
-  wrapper: `flex justify-center w-28 sm:w-[240px] `,
+  wrapper: `flex justify-start items-center mw-[240px] bg-[#4285f4] h-12 cursor-pointer hover:bg-[#2A77FA]`,
+  textBtn: `text-white self-center px-4 whitespace-nowrap`,
+  icon: `bg-white h-full w-12`,
 };
 
 const googleSignIn = () => {
@@ -14,8 +16,9 @@ const googleSignIn = () => {
 
 const Signin = () => {
   return (
-    <div className={style.wrapper}>
-      <GoogleButton onClick={googleSignIn} />
+    <div onClick={googleSignIn} className={style.wrapper}>
+      <FcGoogle className={style.icon} />
+      <p className={style.textBtn}>Sign in</p>
     </div>
   );
 };
