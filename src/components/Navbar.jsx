@@ -6,7 +6,7 @@ import LogOut from './LogOut';
 
 const style = {
   nav: `bg-[#000000] h-20 flex justify-between items-center p-4 rounded-t-3xl gap-2`,
-  heading: `text-white text-3xl font-bold`,
+  heading: `text-white text-xl font-bold sm:text-3xl`,
 };
 
 const Navbar = () => {
